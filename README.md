@@ -8,6 +8,6 @@
 2. install dependencies : npm install
 3. serve : npm start
 
-## > To Connecting with API
+## > To Connect with API
 
-1. Run backend service, steps provided in backend code base.
+1. Run backend service, steps provided in backend code base(https://github.com/SathishEskilla/saal-dashboard-backend.git).

@@ -152,6 +152,12 @@ const DataGridComponent: React.FC = () => {
                 </div>
               </div>
             ))}
+            {!customerGridList ||
+              (!customerGridList.length && (
+                <div className="data-not-found">
+                  Customers information is not available
+                </div>
+              ))}
           </div>
         </div>
         {toggleModal && (
