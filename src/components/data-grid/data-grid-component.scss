@@ -1,0 +1,93 @@
+@import "../../styles/default";
+
+.data-grid-component {
+  width: 100%;
+  &__input-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    input {
+      width: 240px;
+      height: 42px;
+      border: 1px solid #f4f4f4;
+      padding: 16px;
+    }
+    button {
+      height: 42px;
+      border: 1px solid #f4f4f4;
+    }
+    @include respond-to(screen-l-min) {
+      padding: 16px 32px;
+    }
+  }
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+
+    @include respond-to(screen-l-min) {
+      padding: 0 32px;
+    }
+    &__header {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      height: 56px;
+      align-items: center;
+      background-color: #f4f4f4;
+      padding: 0 16px;
+      font-family: "Roboto-Medium";
+      font-size: 16px;
+    }
+    &__body {
+      color: $black;
+      font-family: "Roboto-Regular";
+      font-size: 16px;
+      &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 56px;
+        padding: 0 16px;
+        &:nth-of-type(even) {
+          background-color: #f8f8f8;
+        }
+        &:nth-of-type(odd) {
+          background-color: #fefefe;
+        }
+      }
+    }
+    .full-name {
+      width: 20%;
+    }
+    .email {
+      width: 20%;
+      display: none;
+      @include respond-to(screen-l-min) {
+        display: block;
+      }
+    }
+    .user-name {
+      width: 10%;
+      display: none;
+      @include respond-to(screen-l-min) {
+        display: block;
+      }
+    }
+    .picture {
+      width: 10%;
+      display: none;
+      @include respond-to(screen-m-min) {
+        display: block;
+      }
+    }
+    .more-details,
+    .customer-id {
+      width: 10%;
+      @include respond-to(screen-m-min) {
+        width: 15%;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+
+@import './color';
+.cancel-btn, .primary-btn {
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    min-width: 120px;
+    height: 40px;
+    width: 120px;
+    border: 1px solid $dark-yellow;
+    border-radius: 4px;
+}
+.cancel-btn {
+    color: $dark-yellow;
+    background-color: $white
+}
+.primary-btn {
+    background-color: $dark-yellow;
+    color: $black;
+} 

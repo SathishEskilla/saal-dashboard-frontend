@@ -1,0 +1,31 @@
+@import "../../styles/default";
+
+.more-details-component {
+  width: 100%;
+  display: flex;
+  min-height: 150px;
+  margin-top: 32px;
+  flex-direction: column;
+  @include respond-to(screen-m-min) {
+    flex-direction: row;
+  }
+  &__data-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    &__label {
+      font-family: "Roboto-Medium";
+    }
+    &__value {
+      font-size: 14px;
+    }
+    &.user-name {
+      @include respond-to(screen-m-min) {
+        display: none;
+      }
+    }
+    @include respond-to(screen-m-min) {
+      padding-right: 12px;
+    }
+  }
+}
