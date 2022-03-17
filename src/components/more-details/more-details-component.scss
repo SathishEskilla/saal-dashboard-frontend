@@ -1,13 +1,15 @@
 @import "../../styles/default";
 
 .more-details-component {
-  width: 100%;
+  min-width: 300px;
   display: flex;
   min-height: 150px;
   margin-top: 32px;
   flex-direction: column;
   @include respond-to(screen-m-min) {
     flex-direction: row;
+    min-width: 600px;
+    justify-content: space-between;
   }
   &__data-section {
     display: flex;

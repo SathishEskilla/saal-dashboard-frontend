@@ -94,5 +94,11 @@
         width: 15%;
       }
     }
+    .more-details {
+      cursor: pointer;
+      &:hover {
+        color: #378eb4;
+      }
+    }
   }
 }
