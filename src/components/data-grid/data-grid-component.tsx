@@ -1,12 +1,15 @@
 import React, { createContext, useEffect, useState } from "react";
+import axios from "axios";
 // import constants/types here
 import { CustomerGridModel } from "../../types/global-model";
-import { CUSTOMER_GRID_DATA } from "../../utils/global-constants";
+import {
+  AlphabateRegEx,
+  CUSTOMER_GRID_DATA,
+} from "../../utils/global-constants";
 import MoreDetailsComponent from "../more-details/more-details-component";
 // import styles here
 import "react-responsive-modal/styles.css";
 import "./data-grid-component.scss";
-import axios from "axios";
 
 export const CustomerGridDataContext = createContext({} as CustomerGridModel);
 const DataGridComponent: React.FC = () => {
@@ -104,11 +107,14 @@ const DataGridComponent: React.FC = () => {
   /**
    * @method handleInputChange
    * @param element<HTMLElement>
-   * @desc handler to update the search text state
+   * @desc handler to update the search text with only alphabates
    * @returns none
    */
   const handleInputChange = (element: any) => {
-    setSerachText(element.target.value);
+    const regEx = AlphabateRegEx;
+    if (!regEx.test(element.target.value)) {
+      setSerachText(element.target.value);
+    }
   };
 
   return (
@@ -120,6 +126,7 @@ const DataGridComponent: React.FC = () => {
             name="searchBox"
             placeholder="Search by user name"
             onChange={handleInputChange}
+            value={searchText}
           />
           <button onClick={updateCustomerGridList}>
             <img src="./search_icon.svg" alt="search icon" />
@@ -140,7 +147,9 @@ const DataGridComponent: React.FC = () => {
                 <div className="full-name">{item.fullName}</div>
                 <div className="user-name">{item.userName}</div>
                 <div className="email">{item.emailId}</div>
-                <div className="picture">{item.picture}</div>
+                <div className="picture">
+                  <img src={item.picture} alt="user_picture" />
+                </div>
                 <div
                   className="more-details"
                   onClick={() => {

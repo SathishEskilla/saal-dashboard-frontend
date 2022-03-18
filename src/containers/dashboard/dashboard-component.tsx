@@ -4,7 +4,7 @@ import HeaderComponent from "../../components/header/header-component";
 
 import "./dashboard-component.scss";
 
-class DashboardComponent extends React.Component<any> {
+class DashboardComponent extends React.Component {
   render() {
     return (
       <div className="dashboard-component">
