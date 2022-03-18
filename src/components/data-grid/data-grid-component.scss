@@ -83,6 +83,7 @@
     .picture {
       width: 10%;
       display: none;
+      cursor: pointer;
       @include respond-to(screen-m-min) {
         display: block;
       }
