@@ -1,5 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+
 // import constants/types here
 import { CustomerGridModel } from "../../types/global-model";
 import {
@@ -27,6 +30,10 @@ const DataGridComponent: React.FC = () => {
   const [customerGridListForFilter, setCustomerGridListForFilter] = useState(
     [] as CustomerGridModel[]
   );
+  const [lightBoxImage, setLightBoxImage] = useState({
+    openPopUp: false,
+    imageSrc: "",
+  });
 
   /**
    * @desc used to fetch the customers list onload
@@ -148,7 +155,16 @@ const DataGridComponent: React.FC = () => {
                 <div className="user-name">{item.userName}</div>
                 <div className="email">{item.emailId}</div>
                 <div className="picture">
-                  <img src={item.picture} alt="user_picture" />
+                  <img
+                    src={item.picture}
+                    alt="user_picture"
+                    onClick={() => {
+                      setLightBoxImage({
+                        openPopUp: true,
+                        imageSrc: item.picture,
+                      });
+                    }}
+                  />
                 </div>
                 <div
                   className="more-details"
@@ -176,6 +192,15 @@ const DataGridComponent: React.FC = () => {
               setToggleModal(false);
             }}
           ></MoreDetailsComponent>
+        )}
+
+        {lightBoxImage.openPopUp && (
+          <Lightbox
+            mainSrc={lightBoxImage.imageSrc}
+            onCloseRequest={() =>
+              setLightBoxImage({ openPopUp: false, imageSrc: "" })
+            }
+          ></Lightbox>
         )}
       </div>
     </CustomerGridDataContext.Provider>
